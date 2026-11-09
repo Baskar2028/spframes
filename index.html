@@ -1,0 +1,2450 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SP FRAMES | Premium Photography & Cinematography Studio</title>
+    <meta
+      name="description"
+      content="SP FRAMES is a premium photography and cinematography studio capturing weddings, pre-wedding, events, portraits and more. Book your session today."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== CONFIG / THEME ===== */
+      :root {
+        --bg: #080808;
+        --bg2: #121212;
+        --gold: #d4af37;
+        --champagne: #c5a15a;
+        --white: #ffffff;
+        --grey: #a6a6a6;
+        --line: rgba(212, 175, 55, 0.35);
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "Montserrat", Arial, sans-serif;
+        --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: var(--sans);
+        font-weight: 300;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 1px solid var(--gold);
+        outline-offset: 3px;
+      }
+      .img-fallback {
+        background: linear-gradient(135deg, #1a1a1a, #0c0c0c);
+      }
+      .container {
+        width: min(1200px, 92%);
+        margin: 0 auto;
+      }
+      section {
+        padding: 120px 0;
+        position: relative;
+      }
+      .eyebrow {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: inline-block;
+        margin-bottom: 18px;
+      }
+      .h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        line-height: 1.1;
+      }
+      .h2 em {
+        color: var(--gold);
+        font-style: italic;
+      }
+      .lead {
+        color: var(--grey);
+        max-width: 620px;
+        margin-top: 18px;
+      }
+      .gold-line {
+        width: 90px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        margin: 28px 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1.2s var(--ease);
+      }
+      .gold-line.in {
+        transform: scaleX(1);
+      }
+      .center {
+        text-align: center;
+      }
+      .center .lead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .center .gold-line {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 34px;
+        border: 1px solid var(--gold);
+        background: transparent;
+        color: var(--white);
+        font-size: 0.75rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.4s var(--ease);
+        min-height: 48px;
+      }
+      .btn:hover {
+        background: var(--gold);
+        color: #000;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: #000;
+        font-weight: 500;
+      }
+      .btn-gold:hover {
+        background: transparent;
+        color: var(--gold);
+      }
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      /* ===== NAV ===== */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 22px 0;
+        transition:
+          background 0.5s var(--ease),
+          padding 0.5s var(--ease),
+          border-color 0.5s;
+        border-bottom: 1px solid transparent;
+      }
+      .nav.scrolled {
+        background: rgba(8, 8, 8, 0.92);
+        backdrop-filter: blur(8px);
+        padding: 14px 0;
+        border-color: rgba(212, 175, 55, 0.18);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: min(1300px, 94%);
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        letter-spacing: 0.14em;
+        font-weight: 600;
+      }
+      .logo span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        position: relative;
+        padding: 6px 0;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gold);
+        transition: width 0.4s var(--ease);
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--gold);
+      }
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        width: 100%;
+      }
+      .nav-book {
+        padding: 11px 22px;
+        min-height: auto;
+        font-size: 0.68rem;
+      }
+      .burger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        position: relative;
+      }
+      .burger span {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        height: 1px;
+        background: var(--gold);
+        transition: 0.4s var(--ease);
+      }
+      .burger span:nth-child(1) {
+        top: 16px;
+      }
+      .burger span:nth-child(2) {
+        top: 22px;
+      }
+      .burger span:nth-child(3) {
+        top: 28px;
+      }
+      .burger.open span:nth-child(1) {
+        top: 22px;
+        transform: rotate(45deg);
+      }
+      .burger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .burger.open span:nth-child(3) {
+        top: 22px;
+        transform: rotate(-45deg);
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        height: 100vh;
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        padding: 0;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80")
+          center/cover;
+        animation: zoom 22s ease-out forwards;
+        transform: scale(1.12);
+      }
+      @keyframes zoom {
+        to {
+          transform: scale(1);
+        }
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(8, 8, 8, 0.55),
+          rgba(8, 8, 8, 0.85) 80%,
+          #080808
+        );
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 20px;
+        max-width: 980px;
+      }
+      .hero-brand {
+        font-family: var(--serif);
+        letter-spacing: 0.5em;
+        font-size: 0.85rem;
+        color: var(--gold);
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeUp 1s 0.2s forwards;
+      }
+      .hero h1 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(2.4rem, 7vw, 5.6rem);
+        line-height: 1.05;
+        margin: 26px 0 0;
+      }
+      .hero h1 .line {
+        display: block;
+        overflow: hidden;
+      }
+      .hero h1 .line span {
+        display: inline-block;
+        transform: translateY(105%);
+        animation: rise 1.1s var(--ease) forwards;
+      }
+      .hero h1 .line:nth-child(2) span {
+        animation-delay: 0.25s;
+      }
+      .hero h1 .line:nth-child(1) span {
+        animation-delay: 0.1s;
+      }
+      @keyframes rise {
+        to {
+          transform: translateY(0);
+        }
+      }
+      .hero p {
+        color: #d6d6d6;
+        max-width: 560px;
+        margin: 26px auto 0;
+        opacity: 0;
+        animation: fadeUp 1s 0.7s forwards;
+      }
+      .hero .gold-line {
+        margin: 34px auto;
+        transform: scaleX(0);
+        animation: lineIn 1.4s 0.9s var(--ease) forwards;
+      }
+      @keyframes lineIn {
+        to {
+          transform: scaleX(1);
+        }
+      }
+      .hero-btns {
+        display: flex;
+        gap: 18px;
+        justify-content: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeUp 1s 1.1s forwards;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .scroll-ind {
+        position: absolute;
+        bottom: 34px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.6rem;
+        letter-spacing: 0.3em;
+        color: var(--grey);
+        text-transform: uppercase;
+      }
+      .scroll-ind i {
+        width: 1px;
+        height: 50px;
+        background: linear-gradient(var(--gold), transparent);
+        animation: drip 2s infinite;
+      }
+      @keyframes drip {
+        0% {
+          transform: scaleY(0);
+          transform-origin: top;
+        }
+        50% {
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+        51% {
+          transform-origin: bottom;
+        }
+        100% {
+          transform: scaleY(0);
+          transform-origin: bottom;
+        }
+      }
+
+      /* ===== ABOUT ===== */
+      .about {
+        background: var(--bg2);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .about-img {
+        position: relative;
+        aspect-ratio: 4/5;
+        overflow: hidden;
+      }
+      .about-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.4s var(--ease);
+      }
+      .about-img:hover img {
+        transform: scale(1.05);
+      }
+      .about-img::after {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border: 1px solid var(--line);
+        pointer-events: none;
+      }
+      .about p.body {
+        color: var(--grey);
+        margin-top: 20px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        margin-top: 44px;
+        border-top: 1px solid var(--line);
+        padding-top: 36px;
+      }
+      .stat .num {
+        font-family: var(--serif);
+        font-size: 3rem;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .stat .lbl {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--grey);
+        margin-top: 8px;
+      }
+
+      /* ===== FRAMES ===== */
+      .frames-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px;
+        margin-top: 70px;
+      }
+      .frame-card {
+        position: relative;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid rgba(212, 175, 55, 0.18);
+        background: #0c0c0c;
+      }
+      .frame-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 1.2s var(--ease),
+          filter 0.6s;
+      }
+      .frame-card .ov {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 35%,
+          rgba(8, 8, 8, 0.95)
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 30px;
+        transition: background 0.6s;
+      }
+      .frame-card h3 {
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 1.6rem;
+        transition: color 0.4s;
+      }
+      .frame-card p {
+        font-size: 0.82rem;
+        color: var(--grey);
+        margin-top: 8px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.6s var(--ease);
+      }
+      .frame-card .more {
+        font-size: 0.66rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-top: 14px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: all 0.5s var(--ease);
+      }
+      .frame-card:hover img,
+      .frame-card:focus-visible img {
+        transform: scale(1.08);
+      }
+      .frame-card:hover h3,
+      .frame-card:focus-visible h3 {
+        color: var(--gold);
+      }
+      .frame-card:hover p,
+      .frame-card:focus-visible p {
+        max-height: 120px;
+        opacity: 1;
+      }
+      .frame-card:hover .more,
+      .frame-card:focus-visible .more {
+        opacity: 1;
+        transform: none;
+      }
+      .frame-card::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px solid transparent;
+        transition: border-color 0.6s;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .frame-card:hover::before {
+        border-color: var(--line);
+      }
+
+      /* ===== BEST WORKS ===== */
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 50px;
+      }
+      .filter-btn {
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 10px 22px;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        color: var(--grey);
+        transition: all 0.4s;
+        min-height: 44px;
+      }
+      .filter-btn:hover {
+        color: var(--white);
+        border-color: var(--gold);
+      }
+      .filter-btn.active {
+        background: var(--gold);
+        color: #000;
+        border-color: var(--gold);
+      }
+      .masonry {
+        columns: 3 280px;
+        column-gap: 20px;
+        margin-top: 50px;
+      }
+      .work {
+        break-inside: avoid;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        cursor: zoom-in;
+        display: block;
+        width: 100%;
+        background: #0c0c0c;
+        border: 0;
+        padding: 0;
+      }
+      .work img {
+        width: 100%;
+        object-fit: cover;
+        transition:
+          transform 1.2s var(--ease),
+          opacity 0.6s;
+      }
+      .work::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(8, 8, 8, 0.45);
+        opacity: 0;
+        transition: opacity 0.5s;
+        display: flex;
+      }
+      .work .tag {
+        position: absolute;
+        left: 18px;
+        bottom: 16px;
+        z-index: 2;
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        color: var(--white);
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.5s var(--ease);
+      }
+      .work:hover img {
+        transform: scale(1.06);
+      }
+      .work:hover::after {
+        opacity: 1;
+      }
+      .work:hover .tag,
+      .work:focus-visible .tag {
+        opacity: 1;
+        transform: none;
+      }
+      .work.hide {
+        display: none;
+      }
+      .work.gap-s img {
+        aspect-ratio: 4/5;
+      }
+      .work.gap-l img {
+        aspect-ratio: 3/4;
+      }
+      .work.gap-w img {
+        aspect-ratio: 16/11;
+      }
+      .work.gap-q img {
+        aspect-ratio: 1/1;
+      }
+
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.96);
+        z-index: 300;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.5s,
+          visibility 0.5s;
+      }
+      .lightbox.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .lb-img {
+        max-width: 88vw;
+        max-height: 84vh;
+        object-fit: contain;
+        transition:
+          opacity 0.4s,
+          transform 0.5s var(--ease);
+      }
+      .lb-img.swap {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+      .lb-btn {
+        position: absolute;
+        background: none;
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        color: var(--gold);
+        width: 52px;
+        height: 52px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+      }
+      .lb-btn:hover {
+        background: var(--gold);
+        color: #000;
+      }
+      .lb-close {
+        top: 22px;
+        right: 22px;
+      }
+      .lb-prev {
+        left: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .lb-next {
+        right: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .lb-count {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.7rem;
+        letter-spacing: 0.3em;
+        color: var(--grey);
+      }
+
+      /* ===== CONTACT ===== */
+      .contact {
+        background: var(--bg2);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 70px;
+        margin-top: 70px;
+      }
+      .info-item {
+        padding: 26px 0;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      }
+      .info-item h4 {
+        font-size: 0.68rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+      }
+      .info-item p,
+      .info-item a {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        margin-top: 6px;
+        display: block;
+        color: var(--white);
+      }
+      .info-item a:hover {
+        color: var(--gold);
+      }
+      .social-row {
+        display: flex;
+        gap: 14px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .field {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .field.full {
+        grid-column: 1/-1;
+      }
+      .field label {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--grey);
+        margin-bottom: 8px;
+      }
+      .field label .req {
+        color: var(--gold);
+      }
+      .field input,
+      .field select,
+      .field textarea {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 12px 0;
+        color: var(--white);
+        font-size: 0.95rem;
+        transition: border-color 0.4s;
+        width: 100%;
+        border-radius: 0;
+        min-height: 44px;
+      }
+      .field select option {
+        background: #121212;
+        color: #fff;
+      }
+      .field textarea {
+        resize: vertical;
+        min-height: 90px;
+      }
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: var(--gold);
+      }
+      .field input[type="date"] {
+        color-scheme: dark;
+      }
+      .field.invalid input,
+      .field.invalid select,
+      .field.invalid textarea {
+        border-color: #e05d5d;
+      }
+      .err {
+        color: #e88;
+        font-size: 0.75rem;
+        margin-top: 6px;
+        min-height: 0;
+        display: none;
+      }
+      .field.invalid .err {
+        display: block;
+      }
+      .form-msg {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        display: none;
+        padding: 14px 18px;
+        border: 1px solid;
+      }
+      .form-msg.ok {
+        display: block;
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .form-msg.bad {
+        display: block;
+        border-color: #e05d5d;
+        color: #f29a9a;
+      }
+
+      /* ===== BOOKING MODAL ===== */
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 400;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 40px 16px;
+        overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.5s,
+          visibility 0.5s;
+      }
+      .modal.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .modal-box {
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        width: min(860px, 100%);
+        padding: 52px 48px;
+        position: relative;
+        transform: translateY(30px) scale(0.98);
+        transition: transform 0.7s var(--ease);
+        margin: auto 0;
+      }
+      .modal.open .modal-box {
+        transform: none;
+      }
+      .modal-close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: none;
+        border: none;
+        color: var(--gold);
+        font-size: 1.6rem;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+      }
+      .modal h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 2.4rem;
+      }
+      .modal .lead {
+        margin-top: 10px;
+        font-size: 0.9rem;
+      }
+      .modal form .form-grid {
+        margin-top: 34px;
+      }
+      .section-label {
+        grid-column: 1/-1;
+        font-size: 0.66rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        padding-bottom: 8px;
+        margin-top: 10px;
+      }
+      .submit-row {
+        margin-top: 36px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(0, 0, 0, 0.3);
+        border-top-color: #000;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        display: none;
+      }
+      .btn.loading .spinner {
+        display: inline-block;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .success {
+        text-align: center;
+        padding: 40px 10px;
+        display: none;
+      }
+      .success.show {
+        display: block;
+        animation: fadeUp 0.8s var(--ease);
+      }
+      .success .check {
+        width: 80px;
+        height: 80px;
+        border: 1px solid var(--gold);
+        border-radius: 50%;
+        margin: 0 auto 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 2rem;
+      }
+      .success h3 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 2.2rem;
+      }
+      .success .bid {
+        font-family: monospace;
+        color: var(--gold);
+        margin-top: 16px;
+        letter-spacing: 0.1em;
+      }
+      .demo-note {
+        font-size: 0.72rem;
+        color: var(--grey);
+        margin-top: 14px;
+        font-style: italic;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #000;
+        padding: 90px 0 40px;
+        border-top: 1px solid var(--line);
+      }
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 50px;
+      }
+      .foot-grid h5 {
+        font-size: 0.68rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .foot-grid ul {
+        list-style: none;
+      }
+      .foot-grid li {
+        margin-bottom: 12px;
+      }
+      .foot-grid li a {
+        color: var(--grey);
+        font-size: 0.88rem;
+        transition:
+          color 0.3s,
+          padding 0.3s;
+      }
+      .foot-grid li a:hover {
+        color: var(--gold);
+        padding-left: 6px;
+      }
+      .foot-brand .logo {
+        font-size: 2rem;
+      }
+      .foot-brand p {
+        color: var(--grey);
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.15rem;
+        margin-top: 12px;
+      }
+      .foot-bottom {
+        margin-top: 70px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 0.75rem;
+        color: var(--grey);
+        letter-spacing: 0.05em;
+      }
+
+      /* Social / WhatsApp buttons */
+      .soc {
+        width: 46px;
+        height: 46px;
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        transition: all 0.4s;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+      }
+      .soc:hover {
+        background: var(--gold);
+        color: #000;
+      }
+
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 1.1s var(--ease),
+          transform 1.1s var(--ease);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal.d1 {
+        transition-delay: 0.12s;
+      }
+      .reveal.d2 {
+        transition-delay: 0.24s;
+      }
+      .reveal.d3 {
+        transition-delay: 0.36s;
+      }
+
+      /* Floating WhatsApp */
+      .fab {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 90;
+        background: var(--gold);
+        color: #000;
+        padding: 13px 20px;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: transform 0.4s var(--ease);
+      }
+      .fab:hover {
+        transform: translateY(-3px);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 980px) {
+        .about-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 50px;
+        }
+        .foot-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .nav-links {
+          position: fixed;
+          inset: 0;
+          background: rgba(8, 8, 8, 0.98);
+          flex-direction: column;
+          justify-content: center;
+          gap: 30px;
+          transform: translateX(100%);
+          transition: transform 0.6s var(--ease);
+        }
+        .nav-links.open {
+          transform: none;
+        }
+        .nav-links a {
+          font-size: 0.9rem;
+        }
+        .burger {
+          display: block;
+          z-index: 120;
+        }
+        .nav-book {
+          display: none;
+        }
+        .nav-links .nav-book.mobile {
+          display: inline-flex;
+        }
+      }
+      @media (min-width: 981px) {
+        .nav-links .nav-book.mobile {
+          display: none;
+        }
+      }
+      @media (max-width: 640px) {
+        section {
+          padding: 85px 0;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .modal-box {
+          padding: 40px 22px;
+        }
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .frames-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
+        .frame-card h3 {
+          font-size: 1.2rem;
+        }
+        .frame-card p {
+          display: none;
+        }
+        .frame-card .more {
+          opacity: 1;
+          transform: none;
+        }
+        .frame-card:hover p {
+          display: none;
+        }
+        .foot-grid {
+          grid-template-columns: 1fr;
+        }
+        .masonry {
+          columns: 2 150px;
+          column-gap: 12px;
+        }
+        .work {
+          margin-bottom: 12px;
+        }
+        .hero-btns .btn {
+          width: 100%;
+        }
+        .lb-prev,
+        .lb-next {
+          top: auto;
+          bottom: 16px;
+          transform: none;
+        }
+        .lb-prev {
+          left: 16px;
+        }
+        .lb-next {
+          right: 16px;
+        }
+        .fab {
+          display: none;
+        }
+        .submit-row .btn {
+          width: 100%;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== CONFIG: paste your deployed Google Apps Script Web App URL here.
+     Leave empty to run in DEMO mode (bookings are saved to this browser only). ===== -->
+    <script>
+      window.SP_CONFIG = {
+        APPS_SCRIPT_URL: "", // e.g. "https://script.google.com/macros/s/XXXX/exec"
+        WHATSAPP_NUMBER: "919999999999", // country code + number, no +
+        PHONE_DISPLAY: "+91 99999 99999",
+        EMAIL: "hello@spframes.com",
+        ADDRESS: "Studio address placeholder, Erode, Tamil Nadu, India",
+        MAPS_EMBED: "", // optional Google Maps embed URL
+        INSTAGRAM: "https://instagram.com/spframes",
+        FACEBOOK: "https://facebook.com/spframes",
+        YOUTUBE: "https://youtube.com/@spframes",
+      };
+    </script>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#home" class="logo">SP<span> FRAMES</span></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#frames" class="nav-link">Frames</a></li>
+          <li><a href="#works" class="nav-link">Best Works</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li>
+            <button class="btn btn-gold nav-book" data-book>Book Now</button>
+          </li>
+          <li class="nav-book mobile" style="display: none">
+            <button class="btn btn-gold nav-book" data-book>Book Now</button>
+          </li>
+        </ul>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+      <div
+        class="hero-bg"
+        role="img"
+        aria-label="Cinematic wedding photography"
+      ></div>
+      <div class="hero-content">
+        <div class="hero-brand">SP FRAMES</div>
+        <h1>
+          <span class="line"><span>We Don't Just Capture Moments.</span></span>
+          <span class="line"
+            ><span
+              ><em style="color: var(--gold)">We Make Them Timeless.</em></span
+            ></span
+          >
+        </h1>
+        <div class="gold-line"></div>
+        <p>
+          Every frame tells a story. We capture emotions, preserve memories, and
+          transform your special moments into timeless masterpieces.
+        </p>
+        <div class="hero-btns" style="margin-top: 36px">
+          <a href="#works" class="btn">Explore Our Work</a>
+          <button class="btn btn-gold" data-book>Book Your Session</button>
+        </div>
+      </div>
+      <div class="scroll-ind"><span>Scroll</span><i></i></div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-img reveal">
+          <img
+            src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=1200&q=80"
+            alt="SP FRAMES photographer at work"
+            loading="lazy"
+            onerror="
+              this.parentNode.classList.add('img-fallback');
+              this.remove();
+            "
+          />
+        </div>
+        <div>
+          <span class="eyebrow reveal">About SP Frames</span>
+          <h2 class="h2 reveal d1">
+            Behind Every Frame, <em>There Is A Story.</em>
+          </h2>
+          <div class="gold-line"></div>
+          <p class="body reveal d2">
+            At SP FRAMES, we believe photography is more than capturing an
+            image. It is about preserving emotions, celebrating relationships,
+            and creating memories that last a lifetime. With creativity,
+            passion, and attention to every detail, we transform your special
+            occasions into timeless visual stories.
+          </p>
+          <div class="stats">
+            <div class="stat reveal">
+              <div class="num" data-count="8">0</div>
+              <div class="lbl">Years of Experience</div>
+            </div>
+            <div class="stat reveal d1">
+              <div class="num" data-count="450">0</div>
+              <div class="lbl">Events Captured</div>
+            </div>
+            <div class="stat reveal d2">
+              <div class="num" data-count="380">0</div>
+              <div class="lbl">Happy Clients</div>
+            </div>
+            <div class="stat reveal d3">
+              <div class="num" data-count="12000">0</div>
+              <div class="lbl">Memories Created</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRAMES -->
+    <section id="frames">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow reveal">Services</span>
+          <h2 class="h2 reveal d1">Explore <em>Our Frames</em></h2>
+          <div class="gold-line"></div>
+          <p class="lead reveal d2">
+            Every occasion deserves a beautiful frame.
+          </p>
+        </div>
+        <div class="frames-grid" id="framesGrid"></div>
+      </div>
+    </section>
+
+    <!-- BEST WORKS -->
+    <section id="works" class="about">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow reveal">Portfolio</span>
+          <h2 class="h2 reveal d1">Our <em>Best Works</em></h2>
+          <div class="gold-line"></div>
+          <p class="lead reveal d2">
+            A collection of moments, emotions, and unforgettable stories.
+          </p>
+        </div>
+        <div class="filters" id="filters" role="tablist">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="weddings">Weddings</button>
+          <button class="filter-btn" data-filter="events">Events</button>
+          <button class="filter-btn" data-filter="portraits">Portraits</button>
+          <button class="filter-btn" data-filter="pre-wedding">
+            Pre-Wedding
+          </button>
+          <button class="filter-btn" data-filter="cinematography">
+            Cinematography
+          </button>
+        </div>
+        <div class="masonry" id="masonry"></div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+    >
+      <button class="lb-btn lb-close" id="lbClose" aria-label="Close">
+        &#10005;
+      </button>
+      <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">
+        &#8592;
+      </button>
+      <img class="lb-img" id="lbImg" alt="" />
+      <button class="lb-btn lb-next" id="lbNext" aria-label="Next">
+        &#8594;
+      </button>
+      <div class="lb-count" id="lbCount"></div>
+    </div>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow reveal">Contact</span>
+          <h2 class="h2 reveal d1">
+            Let's Create Something <em>Timeless.</em>
+          </h2>
+          <div class="gold-line"></div>
+          <p class="lead reveal d2">
+            Have an occasion worth remembering? Let's make it unforgettable.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="info-item">
+              <h4>Phone</h4>
+              <a href="tel:+919999999999" id="cPhone"></a>
+            </div>
+            <div class="info-item">
+              <h4>Email</h4>
+              <a href="mailto:hello@spframes.com" id="cEmail"></a>
+            </div>
+            <div class="info-item">
+              <h4>Studio</h4>
+              <p id="cAddress"></p>
+            </div>
+            <div class="info-item">
+              <h4>Google Maps</h4>
+              <p id="cMapText" style="font-size: 1rem; color: var(--grey)">
+                Location placeholder — add your map link in config.
+              </p>
+            </div>
+            <div class="social-row">
+              <button
+                class="btn btn-gold"
+                id="waBtn"
+                style="min-height: 44px; padding: 12px 24px"
+              >
+                WhatsApp
+              </button>
+              <a
+                class="btn"
+                href="https://instagram.com/spframes"
+                target="_blank"
+                rel="noopener"
+                id="igLink"
+                style="min-height: 44px; padding: 12px 24px"
+                >Instagram</a
+              >
+            </div>
+          </div>
+          <form class="reveal d1" id="contactForm" novalidate>
+            <div class="form-grid">
+              <div class="field" data-field="cName">
+                <label for="cName">Name <span class="req">*</span></label
+                ><input id="cName" name="name" autocomplete="name" /><span
+                  class="err"
+                  >Please enter your name.</span
+                >
+              </div>
+              <div class="field" data-field="cEmail">
+                <label for="cEmailIn">Email <span class="req">*</span></label
+                ><input
+                  id="cEmailIn"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                /><span class="err">Enter a valid email address.</span>
+              </div>
+              <div class="field full" data-field="cPhoneIn">
+                <label for="cPhoneIn">Phone</label
+                ><input
+                  id="cPhoneIn"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                /><span class="err">Enter a valid 10-digit phone number.</span>
+              </div>
+              <div class="field full" data-field="cMsg">
+                <label for="cMsg">Message <span class="req">*</span></label
+                ><textarea id="cMsg" name="message"></textarea
+                ><span class="err"
+                  >Please write a message (at least 10 characters).</span
+                >
+              </div>
+            </div>
+            <div class="submit-row" style="justify-content: flex-start">
+              <button class="btn btn-gold" type="submit" id="contactBtn">
+                <span class="spinner"></span><span>Send Message</span>
+              </button>
+            </div>
+            <div class="form-msg" id="contactMsg" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING MODAL -->
+    <div
+      class="modal"
+      id="bookModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="bookTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-box">
+        <button class="modal-close" id="bookClose" aria-label="Close booking">
+          &#10005;
+        </button>
+        <div id="bookFormWrap">
+          <span class="eyebrow">Reserve Your Date</span>
+          <h2 id="bookTitle">
+            Book Your <em style="color: var(--gold)">Session</em>
+          </h2>
+          <p class="lead">
+            Share a few details and our team will confirm your booking.
+          </p>
+          <form id="bookForm" novalidate>
+            <div class="form-grid">
+              <div class="section-label">Contact Details</div>
+              <div class="field" data-field="fName">
+                <label for="fName">Full Name <span class="req">*</span></label
+                ><input id="fName" name="name" autocomplete="name" /><span
+                  class="err"
+                  >Please enter your full name (min 2 letters).</span
+                >
+              </div>
+              <div class="field" data-field="fPhone">
+                <label for="fPhone"
+                  >Phone Number <span class="req">*</span></label
+                ><input
+                  id="fPhone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  placeholder="10-digit mobile"
+                /><span class="err">Enter a valid 10-digit mobile number.</span>
+              </div>
+              <div class="field full" data-field="fEmail">
+                <label for="fEmail"
+                  >Email Address <span class="req">*</span></label
+                ><input
+                  id="fEmail"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                /><span class="err">Enter a valid email address.</span>
+              </div>
+
+              <div class="section-label">Event Details</div>
+              <div class="field" data-field="fType">
+                <label for="fType">Event Type <span class="req">*</span></label>
+                <select id="fType" name="eventType">
+                  <option value="">Select event type</option>
+                  <option>Wedding</option>
+                  <option>Pre-Wedding</option>
+                  <option>Engagement</option>
+                  <option>Birthday</option>
+                  <option>Maternity</option>
+                  <option>Baby Photography</option>
+                  <option>Fashion</option>
+                  <option>Corporate Event</option>
+                  <option>Other</option>
+                </select>
+                <span class="err">Please select an event type.</span>
+              </div>
+              <div class="field" data-field="fDate">
+                <label for="fDate">Event Date <span class="req">*</span></label
+                ><input id="fDate" name="eventDate" type="date" /><span
+                  class="err"
+                  >Please choose a today or future date.</span
+                >
+              </div>
+              <div class="field full" data-field="fLoc">
+                <label for="fLoc"
+                  >Event Location <span class="req">*</span></label
+                ><input id="fLoc" name="location" /><span class="err"
+                  >Please enter the event location.</span
+                >
+              </div>
+              <div class="field" data-field="fStart">
+                <label for="fStart"
+                  >Preferred Start Time <span class="req">*</span></label
+                ><input id="fStart" name="startTime" type="time" /><span
+                  class="err"
+                  >Please select a start time.</span
+                >
+              </div>
+              <div class="field" data-field="fEnd">
+                <label for="fEnd"
+                  >Preferred End Time <span class="req">*</span></label
+                ><input id="fEnd" name="endTime" type="time" /><span class="err"
+                  >End time must be after start time.</span
+                >
+              </div>
+
+              <div class="section-label">Budget & Requirements</div>
+              <div class="field" data-field="fBudget">
+                <label for="fBudget"
+                  >Budget Range <span class="req">*</span></label
+                >
+                <select id="fBudget" name="budget">
+                  <option value="">Select budget</option>
+                  <option>Below ₹5,000</option>
+                  <option>₹5,000 – ₹10,000</option>
+                  <option>₹10,000 – ₹25,000</option>
+                  <option>₹25,000 – ₹50,000</option>
+                  <option>₹50,000 – ₹1,00,000</option>
+                  <option>Above ₹1,00,000</option>
+                </select>
+                <span class="err">Please select a budget range.</span>
+              </div>
+              <div class="field" data-field="fReq">
+                <label for="fReq"
+                  >Photography Requirements <span class="req">*</span></label
+                >
+                <select id="fReq" name="requirements">
+                  <option value="">Select requirement</option>
+                  <option>Photography</option>
+                  <option>Videography</option>
+                  <option>Both Photography &amp; Videography</option>
+                  <option>Cinematography</option>
+                  <option>Album Requirements</option>
+                </select>
+                <span class="err">Please select a requirement.</span>
+              </div>
+              <div class="field full">
+                <label for="fMsg">Additional Message / Special Requests</label
+                ><textarea id="fMsg" name="message"></textarea>
+              </div>
+            </div>
+            <div class="submit-row">
+              <button class="btn btn-gold" type="submit" id="bookBtn">
+                <span class="spinner"></span><span>Submit Booking</span>
+              </button>
+            </div>
+            <div class="form-msg" id="bookMsg" role="alert"></div>
+          </form>
+        </div>
+        <div class="success" id="bookSuccess" role="status">
+          <div class="check">&#10003;</div>
+          <h3>Thank You, <span id="sName"></span></h3>
+          <p class="lead" style="margin: 16px auto 0">
+            Your booking request has been received. Our team will contact you
+            shortly to confirm.
+          </p>
+          <div class="bid" id="sId"></div>
+          <div class="demo-note" id="demoNote"></div>
+          <div style="margin-top: 34px">
+            <button class="btn" id="bookDone">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="foot-grid">
+          <div class="foot-brand">
+            <div class="logo">SP<span> FRAMES</span></div>
+            <p>Capturing moments. Creating timeless memories.</p>
+          </div>
+          <div>
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#frames">Frames</a></li>
+              <li><a href="#works">Best Works</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Our Services</h5>
+            <ul>
+              <li><a href="#frames">Wedding Photography</a></li>
+              <li><a href="#frames">Event Photography</a></li>
+              <li><a href="#frames">Portrait Photography</a></li>
+              <li><a href="#frames">Cinematography</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Social Media</h5>
+            <ul>
+              <li>
+                <a href="#" id="fIg" target="_blank" rel="noopener"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a href="#" id="fFb" target="_blank" rel="noopener">Facebook</a>
+              </li>
+              <li>
+                <a href="#" id="fYt" target="_blank" rel="noopener">YouTube</a>
+              </li>
+              <li>
+                <a href="#" id="fWa" target="_blank" rel="noopener">WhatsApp</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span>Copyright © 2026 SP FRAMES. All Rights Reserved.</span>
+          <span>Designed with passion.</span>
+        </div>
+      </div>
+    </footer>
+
+    <button class="fab" id="fab" data-book>Book Now</button>
+
+    <script>
+      (function () {
+        "use strict";
+        const C = window.SP_CONFIG;
+        const $ = (s, r = document) => r.querySelector(s);
+        const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+        const reduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        /* ---------- Image library (replace URLs with your own photos) ---------- */
+        const IMG = {
+          wedding:
+            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80",
+          couple:
+            "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80",
+          bride:
+            "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=80",
+          preWed:
+            "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=900&q=80",
+          engage:
+            "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=80",
+          birthday:
+            "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=80",
+          maternity:
+            "https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=900&q=80",
+          baby: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=80",
+          fashion:
+            "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80",
+          event:
+            "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80",
+          candid:
+            "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=80",
+          cine: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
+          portrait1:
+            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80",
+          portrait2:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
+          portrait3:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
+          venue:
+            "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80",
+          film: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80",
+          dance:
+            "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
+          gallery1:
+            "https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1200&q=80",
+          gallery2:
+            "https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1200&q=80",
+          gallery3:
+            "https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=1200&q=80",
+        };
+
+        /* ---------- Services ---------- */
+        const SERVICES = [
+          {
+            t: "Wedding Photography",
+            d: "Timeless coverage of your big day, from quiet moments to the grand celebration.",
+            img: IMG.wedding,
+            f: "weddings",
+          },
+          {
+            t: "Pre-Wedding Photography",
+            d: "Romantic, story-driven sessions in landscapes and locations you love.",
+            img: IMG.preWed,
+            f: "pre-wedding",
+          },
+          {
+            t: "Engagement Photography",
+            d: "Intimate frames celebrating the beginning of your forever.",
+            img: IMG.engage,
+            f: "pre-wedding",
+          },
+          {
+            t: "Birthday Photography",
+            d: "Joyful, candid portraits of the celebrations that matter most.",
+            img: IMG.birthday,
+            f: "events",
+          },
+          {
+            t: "Maternity Photography",
+            d: "Graceful portraits honoring the most beautiful chapter of life.",
+            img: IMG.maternity,
+            f: "portraits",
+          },
+          {
+            t: "Baby & Kids Photography",
+            d: "Tender, playful images of childhood, preserved forever.",
+            img: IMG.baby,
+            f: "portraits",
+          },
+          {
+            t: "Fashion Photography",
+            d: "Editorial-grade imagery with a cinematic, refined eye.",
+            img: IMG.fashion,
+            f: "portraits",
+          },
+          {
+            t: "Event Photography",
+            d: "Corporate and private events documented with elegance and precision.",
+            img: IMG.event,
+            f: "events",
+          },
+          {
+            t: "Candid Photography",
+            d: "Natural, unposed moments that feel honest and effortless.",
+            img: IMG.candid,
+            f: "weddings",
+          },
+          {
+            t: "Cinematography",
+            d: "Films that move — motion, sound and light crafted into stories.",
+            img: IMG.cine,
+            f: "cinematography",
+          },
+        ];
+
+        /* ---------- Portfolio ---------- */
+        const WORKS = [
+          {
+            src: IMG.wedding,
+            cat: "weddings",
+            tag: "Wedding Ceremony",
+            size: "gap-l",
+          },
+          {
+            src: IMG.portrait1,
+            cat: "portraits",
+            tag: "Portrait Study",
+            size: "gap-s",
+          },
+          {
+            src: IMG.preWed,
+            cat: "pre-wedding",
+            tag: "Pre-Wedding Journey",
+            size: "gap-w",
+          },
+          { src: IMG.event, cat: "events", tag: "Gala Evening", size: "gap-q" },
+          {
+            src: IMG.couple,
+            cat: "weddings",
+            tag: "First Look",
+            size: "gap-s",
+          },
+          {
+            src: IMG.cine,
+            cat: "cinematography",
+            tag: "Cinematic Frame",
+            size: "gap-w",
+          },
+          {
+            src: IMG.portrait2,
+            cat: "portraits",
+            tag: "Golden Hour Portrait",
+            size: "gap-l",
+          },
+          {
+            src: IMG.dance,
+            cat: "events",
+            tag: "Reception Dance",
+            size: "gap-s",
+          },
+          {
+            src: IMG.bride,
+            cat: "weddings",
+            tag: "Bridal Details",
+            size: "gap-l",
+          },
+          {
+            src: IMG.engage,
+            cat: "pre-wedding",
+            tag: "Engagement Story",
+            size: "gap-q",
+          },
+          {
+            src: IMG.portrait3,
+            cat: "portraits",
+            tag: "Studio Portrait",
+            size: "gap-s",
+          },
+          {
+            src: IMG.film,
+            cat: "cinematography",
+            tag: "Film Still",
+            size: "gap-l",
+          },
+          { src: IMG.venue, cat: "events", tag: "Venue Design", size: "gap-w" },
+          {
+            src: IMG.gallery1,
+            cat: "portraits",
+            tag: "Natural Light",
+            size: "gap-s",
+          },
+          {
+            src: IMG.gallery2,
+            cat: "weddings",
+            tag: "Ceremony Vows",
+            size: "gap-q",
+          },
+          {
+            src: IMG.gallery3,
+            cat: "pre-wedding",
+            tag: "Seaside Story",
+            size: "gap-l",
+          },
+        ];
+
+        const fallback = (el) => {
+          el.classList.add("img-fallback");
+          el.removeAttribute("src");
+          el.alt = el.alt || "";
+        };
+
+        /* ---------- Render services ---------- */
+        const fg = $("#framesGrid");
+        fg.innerHTML = SERVICES.map(
+          (s, i) => `
+    <article class="frame-card reveal d${i % 3}" tabindex="0" data-filter="${s.f}" aria-label="${s.t} — view gallery">
+      <img src="${s.img}" alt="${s.t}" loading="lazy" onerror="this.parentNode.classList.add('img-fallback');this.remove()">
+      <div class="ov">
+        <h3>${s.t}</h3>
+        <p>${s.d}</p>
+        <span class="more">Explore &rarr;</span>
+      </div>
+    </article>`,
+        ).join("");
+        fg.addEventListener("click", (e) => {
+          const card = e.target.closest(".frame-card");
+          if (!card) return;
+          setFilter(card.dataset.filter);
+          $("#works").scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+        });
+        fg.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.target.click();
+          }
+        });
+
+        /* ---------- Render masonry ---------- */
+        const ms = $("#masonry");
+        ms.innerHTML = WORKS.map(
+          (w, i) => `
+    <button class="work ${w.size}" data-cat="${w.cat}" data-i="${i}" aria-label="Open ${w.tag}">
+      <img src="${w.src}" alt="${w.tag}" loading="lazy" onerror="this.parentNode.classList.add('img-fallback');this.remove()">
+      <span class="tag">${w.tag}</span>
+    </button>`,
+        ).join("");
+
+        /* ---------- Filters ---------- */
+        let currentFilter = "all";
+        function setFilter(f) {
+          currentFilter = f;
+          $$(".filter-btn").forEach((b) => {
+            const on = b.dataset.filter === f;
+            b.classList.toggle("active", on);
+            b.setAttribute("aria-selected", on);
+          });
+          $$(".work").forEach((w) => {
+            w.classList.toggle("hide", f !== "all" && w.dataset.cat !== f);
+          });
+        }
+        $("#filters").addEventListener("click", (e) => {
+          const b = e.target.closest(".filter-btn");
+          if (b) setFilter(b.dataset.filter);
+        });
+
+        /* ---------- Lightbox ---------- */
+        const lb = $("#lightbox"),
+          lbImg = $("#lbImg"),
+          lbCount = $("#lbCount");
+        let visible = [],
+          lbIndex = 0,
+          lastFocus = null;
+        function showLB(i, animate) {
+          lbIndex = (i + visible.length) % visible.length;
+          const w = visible[lbIndex];
+          const src = WORKS[w.i].src;
+          const apply = () => {
+            lbImg.src = src;
+            lbImg.alt = WORKS[w.i].tag;
+            lbImg.classList.remove("swap");
+          };
+          if (animate && !reduced) {
+            lbImg.classList.add("swap");
+            setTimeout(apply, 280);
+          } else apply();
+          lbCount.textContent = `${String(lbIndex + 1).padStart(2, "0")} / ${String(visible.length).padStart(2, "0")} — ${WORKS[w.i].tag}`;
+        }
+        function openLB(i) {
+          visible = $$(".work")
+            .filter((w) => !w.classList.contains("hide"))
+            .map((w) => ({ i: +w.dataset.i }));
+          const idx = visible.findIndex((v) => v.i === i);
+          lastFocus = document.activeElement;
+          showLB(idx < 0 ? 0 : idx, false);
+          lb.classList.add("open");
+          document.body.style.overflow = "hidden";
+          $("#lbClose").focus();
+        }
+        function closeLB() {
+          lb.classList.remove("open");
+          document.body.style.overflow = "";
+          if (lastFocus) lastFocus.focus();
+        }
+        ms.addEventListener("click", (e) => {
+          const b = e.target.closest(".work");
+          if (b) openLB(+b.dataset.i);
+        });
+        $("#lbClose").onclick = closeLB;
+        $("#lbPrev").onclick = () => showLB(lbIndex - 1, true);
+        $("#lbNext").onclick = () => showLB(lbIndex + 1, true);
+        lb.addEventListener("click", (e) => {
+          if (e.target === lb) closeLB();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (!lb.classList.contains("open")) return;
+          if (e.key === "Escape") closeLB();
+          if (e.key === "ArrowLeft") showLB(lbIndex - 1, true);
+          if (e.key === "ArrowRight") showLB(lbIndex + 1, true);
+        });
+        // simple swipe on touch devices
+        let tx = null;
+        lb.addEventListener(
+          "touchstart",
+          (e) => {
+            tx = e.changedTouches[0].clientX;
+          },
+          { passive: true },
+        );
+        lb.addEventListener("touchend", (e) => {
+          if (tx === null) return;
+          const dx = e.changedTouches[0].clientX - tx;
+          if (Math.abs(dx) > 50) showLB(lbIndex + (dx < 0 ? 1 : -1), true);
+          tx = null;
+        });
+
+        /* ---------- Nav ---------- */
+        const nav = $("#nav"),
+          burger = $("#burger"),
+          navLinks = $("#navLinks");
+        const onScroll = () =>
+          nav.classList.toggle("scrolled", window.scrollY > 60);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        function closeMenu() {
+          burger.classList.remove("open");
+          navLinks.classList.remove("open");
+          burger.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+        burger.addEventListener("click", () => {
+          const open = !navLinks.classList.contains("open");
+          navLinks.classList.toggle("open", open);
+          burger.classList.toggle("open", open);
+          burger.setAttribute("aria-expanded", open);
+          document.body.style.overflow = open ? "hidden" : "";
+        });
+        $$(".nav-link").forEach((a) => a.addEventListener("click", closeMenu));
+        // active link highlight
+        const sections = ["home", "about", "frames", "works", "contact"].map(
+          (id) => document.getElementById(id),
+        );
+        const navObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((en) => {
+              if (en.isIntersecting) {
+                $$(".nav-link").forEach((l) =>
+                  l.classList.toggle(
+                    "active",
+                    l.getAttribute("href") === "#" + en.target.id,
+                  ),
+                );
+              }
+            });
+          },
+          { rootMargin: "-45% 0px -50% 0px" },
+        );
+        sections.forEach((s) => s && navObs.observe(s));
+
+        /* ---------- Reveal + counters ---------- */
+        const revObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((en) => {
+              if (en.isIntersecting) {
+                en.target.classList.add("in");
+                if (en.target.classList.contains("gold-line")) {
+                }
+                revObs.unobserve(en.target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        $$(".reveal, .gold-line").forEach((el) => revObs.observe(el));
+
+        const countObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((en) => {
+              if (!en.isIntersecting) return;
+              const el = en.target,
+                end = +el.dataset.count;
+              if (reduced) {
+                el.textContent = end.toLocaleString("en-IN") + "+";
+              } else {
+                const start = performance.now(),
+                  dur = 1800;
+                const step = (now) => {
+                  const p = Math.min((now - start) / dur, 1),
+                    eased = 1 - Math.pow(1 - p, 3);
+                  el.textContent =
+                    Math.floor(end * eased).toLocaleString("en-IN") +
+                    (p === 1 ? "+" : "");
+                  if (p < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+              }
+              countObs.unobserve(el);
+            });
+          },
+          { threshold: 0.5 },
+        );
+        $$("[data-count]").forEach((el) => countObs.observe(el));
+
+        /* ---------- Contact info from config ---------- */
+        const wa = `https://wa.me/${C.WHATSAPP_NUMBER}`;
+        $("#cPhone").textContent = C.PHONE_DISPLAY;
+        $("#cPhone").href = "tel:+" + C.WHATSAPP_NUMBER;
+        $("#cEmail").textContent = C.EMAIL;
+        $("#cEmail").href = "mailto:" + C.EMAIL;
+        $("#cAddress").textContent = C.ADDRESS;
+        $("#igLink").href = C.INSTAGRAM;
+        $("#waBtn").onclick = () => window.open(wa, "_blank", "noopener");
+        $("#fIg").href = C.INSTAGRAM;
+        $("#fFb").href = C.FACEBOOK;
+        $("#fYt").href = C.YOUTUBE;
+        $("#fWa").href = wa;
+        if (C.MAPS_EMBED) {
+          $("#cMapText").innerHTML =
+            `<iframe src="${C.MAPS_EMBED}" width="100%" height="220" style="border:1px solid rgba(212,175,55,.3);filter:grayscale(.6)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Studio location"></iframe>`;
+        }
+
+        /* ---------- Validation helpers ---------- */
+        const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+        const isPhone = (v) =>
+          /^(\+?91[\s-]?)?[6-9]\d{9}$/.test(
+            v.replace(/[\s()-]/g, "").replace(/^\+/, "+"),
+          );
+        const normPhone = (v) => v.replace(/[\s()-]/g, "");
+        function setInvalid(field, bad) {
+          field.classList.toggle("invalid", bad);
+        }
+        function todayISO() {
+          const d = new Date();
+          d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+          return d.toISOString().slice(0, 10);
+        }
+
+        function validateBooking(f) {
+          const v = {
+            name: f.name.value.trim(),
+            phone: f.phone.value.trim(),
+            email: f.email.value.trim(),
+            eventType: f.eventType.value,
+            eventDate: f.eventDate.value,
+            location: f.location.value.trim(),
+            startTime: f.startTime.value,
+            endTime: f.endTime.value,
+            budget: f.budget.value,
+            requirements: f.requirements.value,
+          };
+          const checks = {
+            fName: v.name.length >= 2 && /[A-Za-z]/.test(v.name),
+            fPhone: isPhone(v.phone),
+            fEmail: isEmail(v.email),
+            fType: !!v.eventType,
+            fDate: !!v.eventDate && v.eventDate >= todayISO(),
+            fLoc: v.location.length >= 3,
+            fStart: !!v.startTime,
+            fEnd: !!v.endTime && !!v.startTime && v.endTime > v.startTime,
+            fBudget: !!v.budget,
+            fReq: !!v.requirements,
+          };
+          let ok = true,
+            first = null;
+          Object.keys(checks).forEach((key) => {
+            const field = $(`[data-field="${key}"]`, f);
+            setInvalid(field, !checks[key]);
+            if (!checks[key]) {
+              ok = false;
+              first = first || field.querySelector("input,select");
+            }
+          });
+          if (first) first.focus();
+          return { ok, v };
+        }
+
+        /* ---------- Submit helper (Apps Script or demo) ---------- */
+        async function submitBooking(payload) {
+          if (!C.APPS_SCRIPT_URL) {
+            // DEMO MODE: no backend configured. Stored locally only, clearly labelled.
+            await new Promise((r) => setTimeout(r, 900));
+            const list = JSON.parse(
+              localStorage.getItem("spf_demo_bookings") || "[]",
+            );
+            list.push(payload);
+            localStorage.setItem("spf_demo_bookings", JSON.stringify(list));
+            return { success: true, bookingId: payload.bookingId, demo: true };
+          }
+          // text/plain avoids CORS preflight with Apps Script
+          const res = await fetch(C.APPS_SCRIPT_URL, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error("Server responded with " + res.status);
+          const data = await res.json();
+          if (!data || data.success !== true)
+            throw new Error(
+              (data && data.message) || "Booking was not confirmed.",
+            );
+          return data;
+        }
+
+        /* ---------- Booking modal ---------- */
+        const modal = $("#bookModal"),
+          bookForm = $("#bookForm"),
+          bookBtn = $("#bookBtn");
+        let submitting = false,
+          bookLastFocus = null;
+        function openBook() {
+          bookLastFocus = document.activeElement;
+          modal.classList.add("open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          $("#fDate").min = todayISO();
+          $("#bookFormWrap").style.display = "block";
+          $("#bookSuccess").classList.remove("show");
+          setTimeout(() => $("#fName").focus(), 300);
+        }
+        function closeBook() {
+          modal.classList.remove("open");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          if (bookLastFocus) bookLastFocus.focus();
+        }
+        $$("[data-book]").forEach((b) =>
+          b.addEventListener("click", () => {
+            closeMenu();
+            openBook();
+          }),
+        );
+        $("#bookClose").onclick = closeBook;
+        $("#bookDone").onclick = closeBook;
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeBook();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("open"))
+            closeBook();
+        });
+
+        // live clear errors on input
+        bookForm.addEventListener("input", (e) => {
+          const fld = e.target.closest(".field");
+          if (fld && fld.classList.contains("invalid")) setInvalid(fld, false);
+        });
+        bookForm.addEventListener("change", (e) => {
+          const fld = e.target.closest(".field");
+          if (fld && fld.classList.contains("invalid")) setInvalid(fld, false);
+        });
+
+        bookForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          if (submitting) return; // prevent duplicate submissions
+          const msg = $("#bookMsg");
+          msg.className = "form-msg";
+          msg.textContent = "";
+          const { ok, v } = validateBooking(bookForm);
+          if (!ok) {
+            msg.className = "form-msg bad";
+            msg.textContent = "Please correct the highlighted fields.";
+            return;
+          }
+
+          const f = bookForm;
+          const payload = {
+            bookingId: "SPF-" + Date.now().toString(36).toUpperCase(),
+            submittedAt: new Date().toISOString(),
+            name: v.name,
+            phone: normPhone(v.phone),
+            email: v.email,
+            eventType: v.eventType,
+            eventDate: v.eventDate,
+            location: v.location,
+            startTime: v.startTime,
+            endTime: v.endTime,
+            budget: v.budget,
+            requirements: v.requirements,
+            message: f.message.value.trim(),
+            status: "Pending",
+          };
+
+          submitting = true;
+          bookBtn.classList.add("loading");
+          bookBtn.disabled = true;
+          bookBtn.querySelector("span:last-child").textContent = "Submitting…";
+          try {
+            const result = await submitBooking(payload);
+            $("#sName").textContent = v.name.split(" ")[0];
+            $("#sId").textContent =
+              "Booking ID: " + (result.bookingId || payload.bookingId);
+            $("#demoNote").textContent = result.demo
+              ? "Demo mode: no backend connected. Booking saved in this browser only."
+              : "";
+            $("#bookFormWrap").style.display = "none";
+            $("#bookSuccess").classList.add("show");
+            bookForm.reset();
+            $("#bookDone").focus();
+          } catch (err) {
+            msg.className = "form-msg bad";
+            msg.textContent =
+              "We could not submit your booking. Please try again or WhatsApp us directly. (" +
+              (err.message || "Network error") +
+              ")";
+          } finally {
+            submitting = false;
+            bookBtn.classList.remove("loading");
+            bookBtn.disabled = false;
+            bookBtn.querySelector("span:last-child").textContent =
+              "Submit Booking";
+          }
+        });
+
+        /* ---------- Contact form ---------- */
+        const cf = $("#contactForm");
+        cf.addEventListener("input", (e) => {
+          const fld = e.target.closest(".field");
+          if (fld) setInvalid(fld, false);
+        });
+        cf.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const msg = $("#contactMsg"),
+            btn = $("#contactBtn");
+          const name = cf.name.value.trim(),
+            email = cf.email.value.trim(),
+            phone = cf.phone.value.trim(),
+            message = cf.message.value.trim();
+          const checks = {
+            cName: name.length >= 2,
+            cEmail: isEmail(email),
+            cMsg: message.length >= 10,
+            cPhoneIn: !phone || isPhone(phone),
+          };
+          let ok = true;
+          Object.keys(checks).forEach((k) => {
+            const fld = $(`[data-field="${k}"]`, cf);
+            setInvalid(fld, !checks[k]);
+            if (!checks[k]) ok = false;
+          });
+          if (!ok) {
+            msg.className = "form-msg bad";
+            msg.textContent = "Please correct the highlighted fields.";
+            return;
+          }
+          btn.classList.add("loading");
+          btn.disabled = true;
+          try {
+            if (C.APPS_SCRIPT_URL) {
+              const res = await fetch(C.APPS_SCRIPT_URL, {
+                method: "POST",
+                headers: { "Content-Type": "text/plain;charset=utf-8" },
+                body: JSON.stringify({
+                  type: "contact",
+                  name,
+                  email,
+                  phone: normPhone(phone),
+                  message,
+                  submittedAt: new Date().toISOString(),
+                }),
+              });
+              const data = await res.json();
+              if (!data.success) throw new Error(data.message || "Failed");
+            } else {
+              await new Promise((r) => setTimeout(r, 800));
+            }
+            msg.className = "form-msg ok";
+            msg.textContent =
+              "Thank you, " +
+              name.split(" ")[0] +
+              ". Your message has been sent." +
+              (C.APPS_SCRIPT_URL ? "" : " (Demo mode: not delivered.)");
+            cf.reset();
+          } catch (err) {
+            msg.className = "form-msg bad";
+            msg.textContent =
+              "Message could not be sent. Please try again or contact us on WhatsApp.";
+          } finally {
+            btn.classList.remove("loading");
+            btn.disabled = false;
+          }
+        });
+
+        /* ---------- Set min date on load ---------- */
+        $("#fDate").min = todayISO();
+      })();
+    </script>
+  </body>
+</html>

@@ -2418,6 +2418,8 @@ footer {
 }
 .admin-booking-actions {
   display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
   justify-content: flex-end;
   margin-top: 16px;
 }
@@ -2427,6 +2429,15 @@ footer {
   border-radius: 8px;
   text-transform: none;
   letter-spacing: 0.02em;
+}
+.booking-cancel-btn {
+  border-color: rgba(220, 130, 120, 0.55);
+  color: #e4a29a;
+}
+.booking-cancel-btn:hover {
+  border-color: #e4a29a;
+  background: #e4a29a;
+  color: #080808;
 }
 .admin-empty-state {
   display: grid;

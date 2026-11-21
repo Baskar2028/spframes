@@ -1,4 +1,4 @@
-# Atexra Photography — React + Supabase
+# SPFRAMES — React + Supabase
 
 A Vite, React (JavaScript), React Router and Supabase rebuild based on the supplied `index.html`.
 
@@ -19,7 +19,7 @@ Without Supabase credentials, the public site and galleries still render. Enquir
 
 ## Supabase setup and granting admin access
 1. Create a Supabase project and copy Project URL + anon/publishable key from Project Settings → API.
-2. Run `supabase/schema.sql` in SQL Editor. It creates `services`, `enquiries`, and `admin_users`, enables RLS, seeds six service rows, and installs policies.
+2. Run `supabase/schema.sql` in SQL Editor. It creates `services`, `enquiries`, and `admin_users`, enables RLS, seeds six service rows, and installs policies. Run it again on an existing project to enable admin booking completion and cancellation.
 3. In Authentication → Users, create/invite the client's email account. Confirm the account as appropriate.
 4. Copy that user's UUID and run:
    `insert into public.admin_users(user_id) values ('AUTH-USER-UUID-HERE');`
@@ -35,7 +35,7 @@ Without Supabase credentials, the public site and galleries still render. Enquir
 - Admin allowlist: `public.admin_users`
 - RLS policies and seed rows: `supabase/schema.sql`
 
-Only authorised UUIDs present in `admin_users` can update prices. Public visitors can read active service prices and submit enquiries, but cannot read enquiries. The frontend uses only the anon/publishable key. The service-role key must never be exposed in browser code.
+Only authorised UUIDs present in `admin_users` can update prices, complete bookings, or cancel bookings. Public visitors can read active service prices and submit enquiries, but cannot read or delete enquiries. The frontend uses only the anon/publishable key. The service-role key must never be exposed in browser code.
 
 ## Edit business information
 Update `src/config/siteConfig.js`:
@@ -71,4 +71,4 @@ The supplied HTML did not provide a confirmed owner name, so the owner name rema
 - `/admin/dashboard` (protected)
 
 ## Important content notes
-The source HTML identifies the studio in its About copy as **SP FRAMES**, while its footer is branded **ATEXRA**. The original About paragraph and portfolio image URLs are retained; update the About copy if the studio name should be Atexra throughout. Original business phone/email/social links were example-style placeholders in the source and are not verified.
+The footer intentionally retains its original ATEXRA branding. The business phone, email, WhatsApp and social details carried over from the source HTML are example-style placeholders and should be verified before launch.

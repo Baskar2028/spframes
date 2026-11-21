@@ -128,7 +128,11 @@ export function BookingProvider({ children }) {
   }
 
   async function saveEnquiry(message) {
-    if (!supabase) return;
+    if (!supabase) {
+      throw new Error(
+        "Booking storage is not configured. Please contact us directly on WhatsApp.",
+      );
+    }
     const { error } = await supabase.from("enquiries").insert({
       customer_name: form.name.trim(),
       phone: form.phone.trim(),
@@ -137,11 +141,7 @@ export function BookingProvider({ children }) {
       event_date: form.eventDate || null,
       message,
     });
-    if (error) {
-      showNotice(
-        "Thank you! WhatsApp is ready, but we could not save the enquiry online.",
-      );
-    }
+    if (error) throw error;
   }
 
   async function submit(event) {
@@ -162,13 +162,13 @@ export function BookingProvider({ children }) {
     };
     const message = buildBookingMessage(details);
     window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
-    closeBooking();
-    showNotice("Thank you! Your booking details are ready in WhatsApp.");
     try {
       await saveEnquiry(message);
-    } catch {
+      closeBooking();
+      showNotice("Your booking was saved and is ready in WhatsApp.");
+    } catch (error) {
       showNotice(
-        "Thank you! WhatsApp is ready, but we could not save the enquiry online.",
+        `WhatsApp is open, but the booking could not be saved: ${error.message}`,
       );
     } finally {
       setSubmitting(false);

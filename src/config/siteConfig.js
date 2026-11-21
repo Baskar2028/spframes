@@ -1,5 +1,5 @@
 export const siteConfig = {
-  businessName: "Atexra Photography",
+  businessName: "SPFRAMES",
   whatsappNumber: "917708872251", // Replace with country code + number, digits only
   phoneDisplay: "+91 77088 72251",
   email: "atexra12@gmail.com",
@@ -11,7 +11,7 @@ export const siteConfig = {
   ownerPhoto: "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=1200&q=80",
   mapsEmbed: ""
 };
-export const whatsappUrl = (message = "Hello Atexra Photography, I would like to know more about your photography services.") =>
+export const whatsappUrl = (message = "Hello SPFRAMES, I would like to know more about your photography services.") =>
   `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
 export const buildBookingMessage = ({
   name,
@@ -25,7 +25,7 @@ export const buildBookingMessage = ({
   details,
 }) =>
   [
-    "Hello Atexra Photography, I would like to book a session.",
+    "Hello SPFRAMES, I would like to book a session.",
     `Name: ${name}`,
     `Phone: ${phone}`,
     email && `Email: ${email}`,

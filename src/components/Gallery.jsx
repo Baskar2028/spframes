@@ -14,7 +14,7 @@ export default function Gallery({ items }) {
           >
             <img
               src={it.src}
-              alt={it.tag || "Atexra photography"}
+              alt={it.tag || "SPFRAMES photography"}
               loading="lazy"
             />
             <span>{it.tag || "View photograph"}</span>

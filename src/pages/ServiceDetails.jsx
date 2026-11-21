@@ -49,7 +49,7 @@ export default function ServiceDetails() {
         }}
       >
         <div className="container">
-          <span className="eyebrow">Atexra photography</span>
+          <span className="eyebrow">SPFRAMES photography</span>
           <h1>
             {service.name.split(" ").slice(0, -1).join(" ")}{" "}
             <em>{service.name.split(" ").slice(-1)}</em>

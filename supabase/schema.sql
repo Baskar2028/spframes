@@ -64,6 +64,12 @@ create policy "Admins can update booking status" on public.enquiries
   );
 revoke update on public.enquiries from authenticated;
 grant update (status) on public.enquiries to authenticated;
+drop policy if exists "Admins can delete bookings" on public.enquiries;
+create policy "Admins can delete bookings" on public.enquiries
+  for delete to authenticated
+  using (exists(select 1 from public.admin_users a where a.user_id = auth.uid()));
+revoke delete on public.enquiries from anon, authenticated;
+grant delete on public.enquiries to authenticated;
 drop policy if exists "Admins can read own admin record" on public.admin_users;
 create policy "Admins can read own admin record" on public.admin_users for select to authenticated using (user_id = auth.uid());
 insert into public.services(slug,service_name,description,price) values

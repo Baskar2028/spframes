@@ -46,7 +46,7 @@ export default function Navbar() {
     <header className="nav">
       <div className="nav-inner">
         <Link className="logo" to="/" onClick={closeNavigation}>
-          A<span>TEX</span>RA
+          SP<span>FRAMES</span>
         </Link>
         <button
           className="burger"

@@ -58,7 +58,7 @@ export default function Home() {
           <ChevronLeft />
         </button>
         <div className="hero-content">
-          <span className="hero-brand">ATEXRA PHOTOGRAPHY</span>
+          <span className="hero-brand">SPFRAMES</span>
           <h1>
             {slides[slide][0]}
             <br />
@@ -103,7 +103,7 @@ export default function Home() {
       <section className="why-section">
         <div className="container">
           <SectionTitle
-            eyebrow="The Atexra experience"
+            eyebrow="The SPFRAMES experience"
             title={
               <>
                 Moments become <em>memories.</em>

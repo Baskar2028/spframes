@@ -19,6 +19,7 @@ export default function AdminDashboard() {
     [enquiries, setEnquiries] = useState([]),
     [enquiryMsg, setEnquiryMsg] = useState("Loading bookings…"),
     [enquiriesLoading, setEnquiriesLoading] = useState(true),
+    [bookingBusyId, setBookingBusyId] = useState(null),
     [section, setSection] = useState("pricing"),
     [account, setAccount] = useState({
       email: "",
@@ -105,24 +106,49 @@ export default function AdminDashboard() {
     load();
   }
   async function setBookingStatus(booking, status) {
-    const { error } = await supabase
-      .from("enquiries")
-      .update({ status })
-      .eq("id", booking.id);
-    if (error) {
-      setEnquiryMsg(`Could not update booking: ${error.message}`);
+    setBookingBusyId(booking.id);
+    try {
+      const { error } = await supabase
+        .from("enquiries")
+        .update({ status })
+        .eq("id", booking.id);
+      if (error) throw error;
+      setEnquiries((current) =>
+        current.map((item) =>
+          item.id === booking.id ? { ...item, status } : item,
+        ),
+      );
+      setEnquiryMsg(`${booking.customer_name}'s booking was moved to Completed.`);
+    } catch (error) {
+      setEnquiryMsg(`Could not complete booking: ${error.message}`);
+    } finally {
+      setBookingBusyId(null);
+    }
+  }
+  async function cancelBooking(booking) {
+    if (
+      !window.confirm(
+        `Cancel ${booking.customer_name}'s booking? This will permanently delete the booking data.`,
+      )
+    ) {
       return;
     }
-    setEnquiries((current) =>
-      current.map((item) =>
-        item.id === booking.id ? { ...item, status } : item,
-      ),
-    );
-    setEnquiryMsg(
-      status === "completed"
-        ? `${booking.customer_name}'s booking was moved to Completed.`
-        : `${booking.customer_name}'s booking was reopened.`,
-    );
+    setBookingBusyId(booking.id);
+    try {
+      const { error } = await supabase
+        .from("enquiries")
+        .delete()
+        .eq("id", booking.id);
+      if (error) throw error;
+      setEnquiries((current) =>
+        current.filter((item) => item.id !== booking.id),
+      );
+      setEnquiryMsg(`${booking.customer_name}'s booking was cancelled and deleted.`);
+    } catch (error) {
+      setEnquiryMsg(`Could not cancel booking: ${error.message}`);
+    } finally {
+      setBookingBusyId(null);
+    }
   }
   async function updateAccount(event) {
     event.preventDefault();
@@ -229,7 +255,7 @@ export default function AdminDashboard() {
       <div className="container">
         <div className="admin-head">
           <div>
-            <span className="eyebrow">Atexra control room</span>
+            <span className="eyebrow">SPFRAMES control room</span>
             <h1>
               Studio <em>admin.</em>
             </h1>
@@ -489,19 +515,26 @@ export default function AdminDashboard() {
                           <summary>View booking details</summary>
                           <p>{booking.message}</p>
                         </details>
-                        <div className="admin-booking-actions">
-                          <button
-                            className={booking.status === "completed" ? "btn" : "btn btn-gold"}
-                            onClick={() =>
-                              setBookingStatus(
-                                booking,
-                                booking.status === "completed" ? "pending" : "completed",
-                              )
-                            }
-                          >
-                            {booking.status === "completed" ? "Reopen booking" : "Mark complete"}
-                          </button>
-                        </div>
+                        {booking.status !== "completed" && (
+                          <div className="admin-booking-actions">
+                            <button
+                              className="btn btn-gold"
+                              type="button"
+                              onClick={() => setBookingStatus(booking, "completed")}
+                              disabled={bookingBusyId === booking.id}
+                            >
+                              {bookingBusyId === booking.id ? "Saving…" : "Complete"}
+                            </button>
+                            <button
+                              className="btn booking-cancel-btn"
+                              type="button"
+                              onClick={() => cancelBooking(booking)}
+                              disabled={bookingBusyId === booking.id}
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        )}
                     </article>
                   ))}
                 </div>

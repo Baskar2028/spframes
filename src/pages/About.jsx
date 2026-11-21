@@ -74,7 +74,7 @@ export default function About() {
           <div className="owner-photo">
             <img
               src={siteConfig.ownerPhoto || IMG.portrait1}
-              alt="Atexra studio owner"
+              alt="SPFRAMES studio owner"
             />
           </div>
           <div>
@@ -82,7 +82,7 @@ export default function About() {
             <h2>{siteConfig.ownerName}</h2>
             <p className="lead">A photographer's eye, a storyteller's heart.</p>
             <p className="body-copy">
-              The person behind Atexra Photography believes in creating honest,
+              The person behind SPFRAMES believes in creating honest,
               expressive images that preserve the feeling of a moment. Add the
               owner's personal introduction, photography journey and creative
               vision here.
@@ -97,7 +97,7 @@ export default function About() {
       <section className="about-studio">
         <div className="container">
           <SectionTitle
-            eyebrow="About Atexra"
+            eyebrow="About SPFRAMES"
             title={
               <>
                 More than pictures. <em>Stories that stay.</em>

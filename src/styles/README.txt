@@ -1,0 +1,1 @@
+Global styles are in global.css.\n

@@ -58,7 +58,7 @@ export default function Footer() {
         </div>
         <div className="foot-bottom">
           <span>© {new Date().getFullYear()} ATEXRA. All rights reserved.</span>
-          <span>Designed with passion.</span>
+          <span>Crafted by ATEXRA.</span>
         </div>
       </div>
     </footer>
